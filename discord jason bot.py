@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 
 
 client = discord.Client()
@@ -151,5 +152,7 @@ async def on_message(message):
         author2 = message.guild.get_member(int(message.content[5:20]))
         await message.guild.ban(author)
         await message.channel.send(author2 + "는 하루동안 접속을 하지 않았기 때문에 밴 되었습니다")
+        
 
-client.run("Njk0MTU1MjI5NzI5NjUyNzk2.XoHggQ.S9OGI4RqA6r0yp-UKWkUC8GbtZo")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
